@@ -3,8 +3,6 @@
 
 // UART data
 unsigned char data[6] = {};
-bool old_power_state = false;
-int old_temperature_state = 90;
 
 class Noritz : public Component, public UARTDevice
 {
@@ -24,13 +22,13 @@ public:
 	// 	}
 	// }
 
-	void sensor(Sensor* sensor, float value)
-	{
-		if (sensor->state != value)
-		{
-			sensor->publish_state(value);
-		}
-	}
+  void sensor(Sensor* sensor, float value)
+  {
+    if (sensor->state != value)
+    {
+      sensor->publish_state(value);
+    }
+  }
 
   void setup() override
   {
